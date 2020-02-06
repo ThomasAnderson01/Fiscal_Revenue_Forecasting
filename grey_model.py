@@ -16,10 +16,10 @@ data = pd.read_csv(inputFile1)          # 读取总的数据
 new_reg_data.index = range(1994, 2014)
 new_reg_data.loc[2014] = None
 new_reg_data.loc[2015] = None
-col = ['x1', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x13']
+col = ['x1', 'x4', 'x5', 'x6', 'x7', 'x8']
 
 for i in col:
-    f = gm11(new_reg_data.loc[range(1994, 2014), i].as_matrix())[0]
+    f = gm11(new_reg_data.loc[range(1994, 2014), i].values)[0]
     new_reg_data.loc[2014, i] = f(len(new_reg_data)-1)    # 2014年预测结果
     new_reg_data.loc[2015, i] = f(len(new_reg_data))      # 2015年预测结果
     new_reg_data[i] = new_reg_data[i].round(2)            # 保留两位小数

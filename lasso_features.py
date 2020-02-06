@@ -16,7 +16,7 @@ pearson = np.round(data.corr(method='pearson'), 2)   # 保留两位小数
 print('相关系数矩阵为：', pearson)
 
 lasso = Lasso(1000)               # 调用Lasso()函数，设置λ的值为1000
-lasso.fit(data.iloc[:, 0:13], data['y'])
+lasso.fit(data.iloc[:, 0:14], data['y'])
 print('相关系数为：', np.round(lasso.coef_, 5))           # 输出结果，保留五位小数
 print('相关系数非零个数为：', np.sum(lasso.coef_ != 0))   # 计算相关系数非零的个数
 
